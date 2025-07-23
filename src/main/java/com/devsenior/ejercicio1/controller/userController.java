@@ -8,7 +8,7 @@ import java.util.HashMap;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController // que envia datos al cliente y recibe datos al cliente mediante endpoints
-public class ejercicio1Controller {
+public class userController {
 
     @GetMapping("path")
     public String getMethodName(@RequestParam String param) {
@@ -22,4 +22,6 @@ public class ejercicio1Controller {
         return new HashMap<>();
     }
     
+    // hacer peticiones de usuarios segun el id 
+   
 }
