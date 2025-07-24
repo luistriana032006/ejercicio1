@@ -14,14 +14,26 @@ public class userController {
     public String getMethodName(@RequestParam String param) {
         return new String("Hola Mundo");
     }
+
     /*
-     * segun el nombre que se le pase, asigna un saludo personalizado 
+     * segun el nombre que se le pase, asigna un saludo personalizado
      */
     @GetMapping("/saludo/personalizado/{nombre}")
-    public Map <String, String> obtenerSaludoPersonalizado(@PathVariable String nombre){
-        return new HashMap<>();
+    public Map<String, String> obtenerSaludoPersonalizado(@PathVariable String nombre) {
+        System.out.println(" hola " + nombre); // Imprime el nombre correctamente en consola
+        Map<String, String> respuesta = new HashMap<>();
+        respuesta.put("mensaje", "Hola " + nombre + ", bienvenido!");
+        return respuesta; // Retorna el mensaje al cliente
     }
-    
-    // hacer peticiones de usuarios segun el id 
-   
+
+    // hacer peticiones de usuarios segun el id
+
+    @GetMapping("/usuario/{id}")
+    public Map<String, String> obtenerPorNumeroDeId(@PathVariable Integer id) {
+        Map<String, String> respuesta = new HashMap<>();
+        respuesta.put("usuarioId", id.toString());
+        respuesta.put("mensaje", "Usuario consultado correctamente");
+        return respuesta;
+    }
+
 }
